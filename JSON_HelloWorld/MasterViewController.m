@@ -13,6 +13,8 @@
 #import "AttendanceFeed.h"
 #import "HUD.h"
 
+static NSString *const BaseWebURL = @"http://localhost:3000/";
+
 @interface MasterViewController () {
     AttendanceFeed* _feed;
 }
@@ -30,8 +32,9 @@
     //show loader view
     [HUD showUIBlockingIndicatorWithText:@"Fetching Data"];
     
+    NSString *calling_url = [NSString stringWithFormat:@"%@%@",BaseWebURL,@"events/today/invitees"];
     //fetch the feed
-    _feed = [[AttendanceFeed alloc] initFromURLWithString:@"http://localhost:3000/events/search?event_id=1&name=a&region=&family_name="
+    _feed = [[AttendanceFeed alloc] initFromURLWithString:calling_url
                                          completion:^(JSONModel *model, JSONModelError *err) {
                                              
                                              //hide the loader view
@@ -101,7 +104,7 @@
     // Remove all objects from the filtered search array
     [self.filteredInviteeArray removeAllObjects];
     // Filter the array using NSPredicate
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@ || SELF.familyName contains[c] %@ || SELF.region contains[c] %@ || SELF.contactNumber contains[c] %@",searchText, searchText, searchText, searchText];
     filteredInviteeArray = [NSMutableArray arrayWithArray:[_feed.invitees filteredArrayUsingPredicate:predicate]];
 }
 
