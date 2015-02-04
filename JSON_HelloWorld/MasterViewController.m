@@ -90,10 +90,14 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //TODO: use filtered array
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    InviteeModel* invitee;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        invitee = filteredInviteeArray[indexPath.row];
+    } else {
+        invitee = _feed.invitees[indexPath.row];
+    }
     
-    InviteeModel* invitee = _feed.invitees[indexPath.row];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     NSString* message = [NSString stringWithFormat:@"%@ from %@ %@",
                          invitee.name, invitee.familyName, invitee.category
