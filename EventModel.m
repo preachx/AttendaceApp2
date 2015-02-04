@@ -1,9 +1,21 @@
 //
-//  EventModel.m
+//  LoanModel.m
 //  JSON_HelloWorld
 //
-//  Created by Prasann Shah on 04/02/15.
-//  Copyright (c) 2015 Underplot ltd. All rights reserved.
+//  Created by Marin Todorov on 13/01/2013.
+//  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "EventModel.h"
+
+@implementation EventModel
+
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id": @"id",
+                                                       @"event_date": @"eventDate",
+                                                       @"description": @"desc"
+                                                       }];
+}
+@end

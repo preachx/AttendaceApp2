@@ -63,9 +63,10 @@
                             <outlet property="dataSource" destination="12" id="16"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <navigationItem key="navigationItem" id="36"/>
                     <connections>
                         <outlet property="SearchBar" destination="Gob-Ae-QuJ" id="GkX-ab-xqZ"/>
+                        <outlet property="TitleNav" destination="36" id="KBo-OE-KT8"/>
                         <outlet property="searchBar" destination="Gob-Ae-QuJ" id="PCY-Cq-xe7"/>
                         <outlet property="searchDisplayController" destination="VRc-0i-7gf" id="Kwt-1g-oly"/>
                         <outlet property="tableView" destination="13" id="LxU-Rb-Lyx"/>

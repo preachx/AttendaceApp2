@@ -18,6 +18,7 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
 @interface MasterViewController () {
     AttendanceFeed* _feed;
 }
+@property (weak, nonatomic) IBOutlet UINavigationItem *TitleNav;
 @property (strong,nonatomic) NSMutableArray *filteredInviteeArray;
 @property IBOutlet UISearchBar *searchBar;
 @end
@@ -42,8 +43,11 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
                                              
                                              //json fetched
                                              NSLog(@"invitees: %@", _feed.invitees);
-
-                                                 self.filteredInviteeArray = [NSMutableArray arrayWithCapacity:[_feed.invitees count]];
+                                             NSLog(@"event: %@", _feed.event);
+                                             
+                                             self.filteredInviteeArray = [NSMutableArray arrayWithCapacity:[_feed.invitees count]];
+                                             
+                                             self.TitleNav.title = _feed.event.desc;
                                              
                                              [self.tableView reloadData];
                                              
@@ -86,6 +90,7 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //TODO: use filtered array
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     InviteeModel* invitee = _feed.invitees[indexPath.row];

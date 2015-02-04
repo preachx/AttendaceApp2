@@ -8,9 +8,11 @@
 
 #import "JSONModel.h"
 #import "InviteeModel.h"
+#import "EventModel.h"
 
 @interface AttendanceFeed : JSONModel
 
 @property (strong, nonatomic) NSArray<InviteeModel>* invitees;
+@property (strong, nonatomic) EventModel *event;
 
 @end
