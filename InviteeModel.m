@@ -10,4 +10,9 @@
 
 @implementation InviteeModel
 
++(JSONKeyMapper*)keyMapper
+{
+    return [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];
+}
+
 @end

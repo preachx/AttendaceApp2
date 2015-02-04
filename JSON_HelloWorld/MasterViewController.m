@@ -56,8 +56,8 @@
     InviteeModel* invitee = _feed.invitees[indexPath.row];
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",
-                           invitee.name
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ || %@ || %@ || %@",
+                           invitee.name, invitee.familyName, invitee.contactNumber, invitee.region
                            ];
     return cell;
 }
