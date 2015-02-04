@@ -29,6 +29,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for name/family_name/ contact_number" id="Gob-Ae-QuJ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                            <connections>
+                                <outlet property="delegate" destination="12" id="hdp-3K-bgD"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="phq-AM-6qj" style="IBUITableViewCellStyleDefault" id="lJ0-d7-vTF">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -53,12 +61,26 @@
                         <sections/>
                         <connections>
                             <outlet property="dataSource" destination="12" id="16"/>
-                            <outlet property="delegate" destination="12" id="15"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="36"/>
+                    <connections>
+                        <outlet property="SearchBar" destination="Gob-Ae-QuJ" id="GkX-ab-xqZ"/>
+                        <outlet property="searchBar" destination="Gob-Ae-QuJ" id="PCY-Cq-xe7"/>
+                        <outlet property="searchDisplayController" destination="VRc-0i-7gf" id="Kwt-1g-oly"/>
+                        <outlet property="tableView" destination="13" id="LxU-Rb-Lyx"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="VRc-0i-7gf">
+                    <connections>
+                        <outlet property="delegate" destination="12" id="hcF-Mm-J7h"/>
+                        <outlet property="searchBar" destination="Gob-Ae-QuJ" id="r9U-uN-coB"/>
+                        <outlet property="searchContentsController" destination="12" id="8EG-VP-we7"/>
+                        <outlet property="searchResultsDataSource" destination="12" id="1Pc-Xz-9PN"/>
+                        <outlet property="searchResultsDelegate" destination="12" id="W8R-Fl-xqn"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="459" y="64"/>
         </scene>

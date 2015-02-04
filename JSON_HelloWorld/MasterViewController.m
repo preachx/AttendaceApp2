@@ -16,9 +16,14 @@
 @interface MasterViewController () {
     AttendanceFeed* _feed;
 }
+@property (strong,nonatomic) NSMutableArray *filteredInviteeArray;
+@property IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation MasterViewController
+
+@synthesize filteredInviteeArray;
+@synthesize searchBar;
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -34,10 +39,13 @@
                                              
                                              //json fetched
                                              NSLog(@"invitees: %@", _feed.invitees);
+
+                                                 self.filteredInviteeArray = [NSMutableArray arrayWithCapacity:[_feed.invitees count]];
                                              
                                              [self.tableView reloadData];
                                              
                                          }];
+
 }
 
 #pragma mark - table methods
@@ -48,14 +56,25 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _feed.invitees.count;
+    // Check to see whether the normal table or search results table is being displayed and return the count from the appropriate array
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [filteredInviteeArray count];
+    } else {
+        return _feed.invitees.count;
+    }
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    InviteeModel* invitee = _feed.invitees[indexPath.row];
+    InviteeModel* invitee;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        invitee = [filteredInviteeArray objectAtIndex:indexPath.row];
+    } else {
+        invitee = _feed.invitees[indexPath.row];
+    }
+//
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ || %@ || %@ || %@",
                            invitee.name, invitee.familyName, invitee.contactNumber, invitee.region
                            ];
@@ -76,5 +95,31 @@
     [HUD showAlertWithTitle:@"invitee details" text:message];
 }
 
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [self.filteredInviteeArray removeAllObjects];
+    // Filter the array using NSPredicate
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c] %@",searchText];
+    filteredInviteeArray = [NSMutableArray arrayWithArray:[_feed.invitees filteredArrayUsingPredicate:predicate]];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
 
 @end
