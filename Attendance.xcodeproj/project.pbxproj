@@ -35,18 +35,22 @@
 		9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39546716A34FF300C5C8FD /* JSONValueTransformer.m */; };
 		9C39547C16A3554D00C5C8FD /* InviteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39547B16A3554D00C5C8FD /* InviteeModel.m */; };
 		9C39548216A3581600C5C8FD /* AttendanceFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C39548116A3581600C5C8FD /* AttendanceFeed.m */; };
+		D66A9A101A826F8000F7B3AC /* ExpandedInviteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A9A0F1A826F8000F7B3AC /* ExpandedInviteeModel.m */; };
+		D66A9A121A82753100F7B3AC /* InviteeFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D66A9A111A82753100F7B3AC /* InviteeFeed.m */; };
 		D69AF99B1A82438200C5F518 /* EventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D69AF99A1A82438200C5F518 /* EventModel.m */; };
+		D6FF656D1A837F10002AB776 /* DetailFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FF656C1A837F10002AB776 /* DetailFeed.m */; };
+		D6FF65701A837F5C002AB776 /* EventInviteeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FF656F1A837F5C002AB776 /* EventInviteeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C39541916A34F8200C5C8FD /* JSON_HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSON_HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C39541916A34F8200C5C8FD /* Attendance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Attendance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C39541D16A34F8200C5C8FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9C39541F16A34F8200C5C8FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C39542116A34F8200C5C8FD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		9C39542516A34F8200C5C8FD /* JSON_HelloWorld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JSON_HelloWorld-Info.plist"; sourceTree = "<group>"; };
+		9C39542516A34F8200C5C8FD /* Attendance-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Attendance-Info.plist"; sourceTree = "<group>"; };
 		9C39542716A34F8200C5C8FD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C39542916A34F8200C5C8FD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9C39542B16A34F8200C5C8FD /* JSON_HelloWorld-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSON_HelloWorld-Prefix.pch"; sourceTree = "<group>"; };
+		9C39542B16A34F8200C5C8FD /* Attendance-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Attendance-Prefix.pch"; sourceTree = "<group>"; };
 		9C39542C16A34F8200C5C8FD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9C39542D16A34F8200C5C8FD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9C39542F16A34F8200C5C8FD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -88,8 +92,16 @@
 		9C39547B16A3554D00C5C8FD /* InviteeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteeModel.m; sourceTree = "<group>"; };
 		9C39548016A3581600C5C8FD /* AttendanceFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceFeed.h; sourceTree = "<group>"; };
 		9C39548116A3581600C5C8FD /* AttendanceFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceFeed.m; sourceTree = "<group>"; };
+		D66A9A0E1A826F5600F7B3AC /* ExpandedInviteeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpandedInviteeModel.h; sourceTree = "<group>"; };
+		D66A9A0F1A826F8000F7B3AC /* ExpandedInviteeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedInviteeModel.m; sourceTree = "<group>"; };
+		D66A9A111A82753100F7B3AC /* InviteeFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteeFeed.m; sourceTree = "<group>"; };
+		D66A9A131A82753D00F7B3AC /* InviteeFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InviteeFeed.h; sourceTree = "<group>"; };
 		D69AF9991A82432300C5F518 /* EventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventModel.h; sourceTree = "<group>"; };
 		D69AF99A1A82438200C5F518 /* EventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventModel.m; sourceTree = "<group>"; };
+		D6FF656B1A837ECD002AB776 /* DetailFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailFeed.h; sourceTree = "<group>"; };
+		D6FF656C1A837F10002AB776 /* DetailFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailFeed.m; sourceTree = "<group>"; };
+		D6FF656E1A837F39002AB776 /* EventInviteeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventInviteeModel.h; sourceTree = "<group>"; };
+		D6FF656F1A837F5C002AB776 /* EventInviteeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventInviteeModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +121,14 @@
 		9C39540E16A34F8200C5C8FD = {
 			isa = PBXGroup;
 			children = (
+				D6FF656F1A837F5C002AB776 /* EventInviteeModel.m */,
+				D6FF656E1A837F39002AB776 /* EventInviteeModel.h */,
+				D6FF656C1A837F10002AB776 /* DetailFeed.m */,
+				D6FF656B1A837ECD002AB776 /* DetailFeed.h */,
+				D66A9A131A82753D00F7B3AC /* InviteeFeed.h */,
+				D66A9A111A82753100F7B3AC /* InviteeFeed.m */,
+				D66A9A0F1A826F8000F7B3AC /* ExpandedInviteeModel.m */,
+				D66A9A0E1A826F5600F7B3AC /* ExpandedInviteeModel.h */,
 				D69AF99A1A82438200C5F518 /* EventModel.m */,
 				D69AF9991A82432300C5F518 /* EventModel.h */,
 				9C39548016A3581600C5C8FD /* AttendanceFeed.h */,
@@ -126,7 +146,7 @@
 		9C39541A16A34F8200C5C8FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C39541916A34F8200C5C8FD /* JSON_HelloWorld.app */,
+				9C39541916A34F8200C5C8FD /* Attendance.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,10 +179,10 @@
 		9C39542416A34F8200C5C8FD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				9C39542516A34F8200C5C8FD /* JSON_HelloWorld-Info.plist */,
+				9C39542516A34F8200C5C8FD /* Attendance-Info.plist */,
 				9C39542616A34F8200C5C8FD /* InfoPlist.strings */,
 				9C39542916A34F8200C5C8FD /* main.m */,
-				9C39542B16A34F8200C5C8FD /* JSON_HelloWorld-Prefix.pch */,
+				9C39542B16A34F8200C5C8FD /* Attendance-Prefix.pch */,
 				9C39542F16A34F8200C5C8FD /* Default.png */,
 				9C39543116A34F8200C5C8FD /* Default@2x.png */,
 				9C39543316A34F8200C5C8FD /* Default-568h@2x.png */,
@@ -246,9 +266,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9C39541816A34F8200C5C8FD /* JSON_HelloWorld */ = {
+		9C39541816A34F8200C5C8FD /* Attendance */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "JSON_HelloWorld" */;
+			buildConfigurationList = 9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "Attendance" */;
 			buildPhases = (
 				9C39541516A34F8200C5C8FD /* Sources */,
 				9C39541616A34F8200C5C8FD /* Frameworks */,
@@ -258,9 +278,9 @@
 			);
 			dependencies = (
 			);
-			name = JSON_HelloWorld;
+			name = Attendance;
 			productName = JSON_HelloWorld;
-			productReference = 9C39541916A34F8200C5C8FD /* JSON_HelloWorld.app */;
+			productReference = 9C39541916A34F8200C5C8FD /* Attendance.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -269,10 +289,10 @@
 		9C39541016A34F8200C5C8FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Underplot ltd.";
 			};
-			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "JSON_HelloWorld" */;
+			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Attendance" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -284,7 +304,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9C39541816A34F8200C5C8FD /* JSON_HelloWorld */,
+				9C39541816A34F8200C5C8FD /* Attendance */,
 			);
 		};
 /* End PBXProject section */
@@ -314,19 +334,23 @@
 				9C39542A16A34F8200C5C8FD /* main.m in Sources */,
 				9C39542E16A34F8200C5C8FD /* AppDelegate.m in Sources */,
 				9C39543A16A34F8200C5C8FD /* MasterViewController.m in Sources */,
+				D66A9A101A826F8000F7B3AC /* ExpandedInviteeModel.m in Sources */,
 				9C39543D16A34F8200C5C8FD /* DetailViewController.m in Sources */,
 				9C39544C16A34FC800C5C8FD /* HUD.m in Sources */,
+				D6FF656D1A837F10002AB776 /* DetailFeed.m in Sources */,
 				9C39544D16A34FC800C5C8FD /* MBProgressHUD.m in Sources */,
 				9C39546816A34FF300C5C8FD /* JSONModel.m in Sources */,
 				9C39546916A34FF300C5C8FD /* JSONModelArray.m in Sources */,
 				9C39546A16A34FF300C5C8FD /* JSONModelClassProperty.m in Sources */,
 				9C39546B16A34FF300C5C8FD /* JSONModelError.m in Sources */,
 				9C39546C16A34FF300C5C8FD /* NSArray+JSONModel.m in Sources */,
+				D6FF65701A837F5C002AB776 /* EventInviteeModel.m in Sources */,
 				9C39546D16A34FF300C5C8FD /* JSONAPI.m in Sources */,
 				9C39546E16A34FF300C5C8FD /* JSONHTTPClient.m in Sources */,
 				9C39546F16A34FF300C5C8FD /* JSONModel+networking.m in Sources */,
 				9C39547016A34FF300C5C8FD /* JSONKeyMapper.m in Sources */,
 				9C39547116A34FF300C5C8FD /* JSONValueTransformer.m in Sources */,
+				D66A9A121A82753100F7B3AC /* InviteeFeed.m in Sources */,
 				9C39547C16A3554D00C5C8FD /* InviteeModel.m in Sources */,
 				9C39548216A3581600C5C8FD /* AttendanceFeed.m in Sources */,
 				D69AF99B1A82438200C5F518 /* EventModel.m in Sources */,
@@ -364,7 +388,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -378,7 +403,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -391,7 +418,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -400,6 +428,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -408,9 +437,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSON_HelloWorld/JSON_HelloWorld-Prefix.pch";
-				INFOPLIST_FILE = "JSON_HelloWorld/JSON_HelloWorld-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "JSON_HelloWorld/Attendance-Prefix.pch";
+				INFOPLIST_FILE = "JSON_HelloWorld/Attendance-Info.plist";
+				PRODUCT_NAME = Attendance;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -420,9 +449,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "JSON_HelloWorld/JSON_HelloWorld-Prefix.pch";
-				INFOPLIST_FILE = "JSON_HelloWorld/JSON_HelloWorld-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "JSON_HelloWorld/Attendance-Prefix.pch";
+				INFOPLIST_FILE = "JSON_HelloWorld/Attendance-Info.plist";
+				PRODUCT_NAME = Attendance;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -431,7 +460,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "JSON_HelloWorld" */ = {
+		9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Attendance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C39543E16A34F8200C5C8FD /* Debug */,
@@ -440,7 +469,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "JSON_HelloWorld" */ = {
+		9C39544016A34F8200C5C8FD /* Build configuration list for PBXNativeTarget "Attendance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9C39544116A34F8200C5C8FD /* Debug */,

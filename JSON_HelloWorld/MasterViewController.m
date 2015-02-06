@@ -11,12 +11,14 @@
 
 #import "JSONModelLib.h"
 #import "AttendanceFeed.h"
+#import "InviteeFeed.h"
 #import "HUD.h"
 
 static NSString *const BaseWebURL = @"http://localhost:3000/";
 
 @interface MasterViewController () {
     AttendanceFeed* _feed;
+    InviteeFeed* _inviteeFeed;
 }
 @property (weak, nonatomic) IBOutlet UINavigationItem *TitleNav;
 @property (strong,nonatomic) NSMutableArray *filteredInviteeArray;
@@ -30,6 +32,9 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    if (_feed.invitees.count == 0) {
+        
+
     //show loader view
     [HUD showUIBlockingIndicatorWithText:@"Fetching Data"];
     
@@ -52,7 +57,7 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
                                              [self.tableView reloadData];
                                              
                                          }];
-
+    }
 }
 
 #pragma mark - table methods
@@ -88,25 +93,6 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    InviteeModel* invitee;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        invitee = filteredInviteeArray[indexPath.row];
-    } else {
-        invitee = _feed.invitees[indexPath.row];
-    }
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSString* message = [NSString stringWithFormat:@"%@ from %@ %@",
-                         invitee.name, invitee.familyName, invitee.category
-                         ];
-    
-    
-    [HUD showAlertWithTitle:@"invitee details" text:message];
-}
-
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.
@@ -132,6 +118,44 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
     // Return YES to cause the search result table view to be reloaded.
     return YES;
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"%@",sender);
+    DetailViewController *dvc = [segue destinationViewController];
+    
+    InviteeModel* invitee;
+
+    if ([self.searchDisplayController isActive]) {
+        NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        invitee = filteredInviteeArray[indexPath.row];
+    } else {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        invitee = _feed.invitees[indexPath.row];
+    }
+    
+    //show loader view
+    [HUD showUIBlockingIndicatorWithText:@"Fetching Data"];
+    
+    NSString *calling_url = [NSString stringWithFormat:@"%@%@%i/events/%i",BaseWebURL,@"invitee/",invitee.id, _feed.event.id];
+    //fetch the feed
+    _inviteeFeed = [[InviteeFeed alloc] initFromURLWithString:calling_url
+                                                   completion:^(JSONModel *model, JSONModelError *err) {
+                                                       
+                                                       //hide the loader view
+                                                       [HUD hideUIBlockingIndicator];
+                                                       
+                                                       NSLog(@"invitee: %@", _inviteeFeed.invitee);
+                                                       dvc.invitee = _inviteeFeed.invitee;
+                                                       dvc.nameLabel.text = _inviteeFeed.invitee.name;
+                                                       dvc.familyNameLabel.text = _inviteeFeed.invitee.familyName;
+                                                       dvc.numPeopleInvitedLabel.text = [NSString stringWithFormat:@"Number of people Invited: %i", _inviteeFeed.invitee.numberOfPeopleInvited];
+                                                       dvc.peopleBroughtTextField.text = [NSString stringWithFormat:@"%i", _inviteeFeed.invitee.numberOfPeopleBrought];
+                                                       NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [NSString stringWithFormat:@"%@%@",BaseWebURL,_inviteeFeed.invitee.photoUrl]]];
+                                                       dvc.inviteeImage.image = [UIImage imageWithData: imageData];
+                                                       dvc.event_id = _feed.event.id;
+                                                   }];
+    
 }
 
 @end
