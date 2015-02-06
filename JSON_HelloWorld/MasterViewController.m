@@ -12,13 +12,15 @@
 #import "JSONModelLib.h"
 #import "AttendanceFeed.h"
 #import "InviteeFeed.h"
+#import "MBProgressHUD.h"
 #import "HUD.h"
 
-static NSString *const BaseWebURL = @"http://localhost:3000/";
+static NSString *const BaseWebURL = @"http://attendancemasterb768.ninefold-apps.com";
 
 @interface MasterViewController () {
     AttendanceFeed* _feed;
     InviteeFeed* _inviteeFeed;
+    MBProgressHUD *hud;
 }
 @property (weak, nonatomic) IBOutlet UINavigationItem *TitleNav;
 @property (strong,nonatomic) NSMutableArray *filteredInviteeArray;
@@ -46,9 +48,29 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
                                              //hide the loader view
                                              [HUD hideUIBlockingIndicator];
                                              
+                                             NSLog(@"%i",err.code);
+
+                                             switch (err.code) {
+                                                 case 1:
+                                                 case 3:
+                                                 case 4:
+                                                     //call out error occurred
+                                                     [self showErrorAlert: @"Something went wrong. You sure there is an event today?"];
+                                                     break;
+                                                 case 2:
+                                                    //call out no event today
+                                                     [self showErrorAlert: @"Something went wrong. Please try later. Please check the internet connection"];
+                                                     break;
+                                             }
+                                             
                                              //json fetched
                                              NSLog(@"invitees: %@", _feed.invitees);
                                              NSLog(@"event: %@", _feed.event);
+                                             
+                                             //call out if invitees list is empty
+                                             if (err.code == 0 && _feed.invitees.count == 0) {
+                                                 [self showErrorAlert: @"No invitees found. Please add them."];
+                                             }
                                              
                                              self.filteredInviteeArray = [NSMutableArray arrayWithCapacity:[_feed.invitees count]];
                                              
@@ -58,6 +80,43 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
                                              
                                          }];
     }
+}
+
+- (void)showErrorAlert: (NSString *) message {
+    
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
+    
+    [self.view addSubview:hud];
+    hud.delegate = self;
+    hud.customView = [[UIImageView alloc] initWithImage:
+                      [UIImage imageNamed:@"X-Mark.png"]];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = message;
+    [hud showWhileExecuting:@selector(waitForTwoSeconds)
+                   onTarget:self withObject:nil animated:YES];
+}
+
+- (void)showInfoAlert {
+    
+    hud = [[MBProgressHUD alloc] initWithView:self.view];
+    
+    [self.view addSubview:hud];
+    hud.delegate = self;
+    hud.customView = [[UIImageView alloc] initWithImage:
+                      [UIImage imageNamed:@"Checkmark.png"]];
+    hud.mode = MBProgressHUDModeCustomView;
+    hud.labelText = @"Updated successfully";
+    [hud showWhileExecuting:@selector(waitForTwoSeconds)
+                   onTarget:self withObject:nil animated:YES];
+}
+
+- (void)waitForTwoSeconds {
+    sleep(2);
+}
+
+- (void)hudWasHidden {
+    
+    [hud removeFromSuperview];
 }
 
 #pragma mark - table methods

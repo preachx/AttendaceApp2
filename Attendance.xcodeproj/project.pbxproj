@@ -291,6 +291,11 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Underplot ltd.";
+				TargetAttributes = {
+					9C39541816A34F8200C5C8FD = {
+						DevelopmentTeam = C2NDM243N4;
+					};
+				};
 			};
 			buildConfigurationList = 9C39541316A34F8200C5C8FD /* Build configuration list for PBXProject "Attendance" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -436,10 +441,13 @@
 		9C39544116A34F8200C5C8FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSON_HelloWorld/Attendance-Prefix.pch";
 				INFOPLIST_FILE = "JSON_HelloWorld/Attendance-Info.plist";
 				PRODUCT_NAME = Attendance;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -448,10 +456,13 @@
 		9C39544216A34F8200C5C8FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JSON_HelloWorld/Attendance-Prefix.pch";
 				INFOPLIST_FILE = "JSON_HelloWorld/Attendance-Info.plist";
 				PRODUCT_NAME = Attendance;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};

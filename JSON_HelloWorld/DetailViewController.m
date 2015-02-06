@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Underplot ltd. All rights reserved.
 //
 
-static NSString *const BaseWebURL = @"http://localhost:3000/";
+static NSString *const BaseWebURL = @"http://attendancemasterb768.ninefold-apps.com/";
 #import "DetailViewController.h"
 #import "HUD.h"
 #import "JSONModelLib.h"
@@ -54,7 +54,7 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
                                                    if(detailFeed.eventInvitee.numberOfPeopleBrought == temp.intValue){
                                                        [self showInfoAlert];
                                                    }else{
-                                                       showError(@"Something went wrong. Please try later.");
+                                                       [self showErrorAlert: @"Something went wrong. Please try later."];
                                                    }
                                                    
                                                }];
@@ -67,13 +67,6 @@ static NSString *const BaseWebURL = @"http://localhost:3000/";
     // Dispose of any resources that can be recreated.
 }
 
-void showError(NSString *errorMessage) {
-    
-    UIAlertView *errorAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Error" message: errorMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [errorAlert show];
-}
-
 - (void)showErrorAlert: (NSString *) message {
     
     hud = [[MBProgressHUD alloc] initWithView:self.view];
@@ -81,7 +74,7 @@ void showError(NSString *errorMessage) {
     [self.view addSubview:hud];
     hud.delegate = self;
     hud.customView = [[UIImageView alloc] initWithImage:
-                       [UIImage imageNamed:@"X-Mark.png"]];
+                      [UIImage imageNamed:@"X-Mark.png"]];
     hud.mode = MBProgressHUDModeCustomView;
     hud.labelText = message;
     [hud showWhileExecuting:@selector(waitForTwoSeconds)
@@ -95,7 +88,7 @@ void showError(NSString *errorMessage) {
     [self.view addSubview:hud];
     hud.delegate = self;
     hud.customView = [[UIImageView alloc] initWithImage:
-                       [UIImage imageNamed:@"Checkmark.png"]];
+                      [UIImage imageNamed:@"Checkmark.png"]];
     hud.mode = MBProgressHUDModeCustomView;
     hud.labelText = @"Updated successfully";
     [hud showWhileExecuting:@selector(waitForTwoSeconds)
@@ -110,6 +103,7 @@ void showError(NSString *errorMessage) {
     
     [hud removeFromSuperview];
 }
+
 
 BOOL isNumericI(NSString *s)
 {
