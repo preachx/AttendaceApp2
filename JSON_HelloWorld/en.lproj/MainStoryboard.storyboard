@@ -163,10 +163,19 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="5yc-FD-yBc">
-                                <rect key="frame" x="-29" y="65" width="555" height="350"/>
+                                <rect key="frame" x="213" y="65" width="555" height="350"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="555" id="EIb-Xk-jj2"/>
+                                    <constraint firstAttribute="width" constant="555" type="user" id="EIb-Xk-jj2"/>
                                     <constraint firstAttribute="height" constant="350" id="j4H-bD-5BQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="555" type="user" id="zQZ-oH-JBx"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="hX4-mh-ixr">
+                                <rect key="frame" x="-11" y="65" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.52596087629999999" blue="0.27726570179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2W2-Ck-CbA"/>
+                                    <constraint firstAttribute="height" constant="128" id="ozJ-Dv-Dh4"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -174,9 +183,9 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="cQq-0l-IA1" secondAttribute="bottom" constant="94" id="2Ms-qq-35A"/>
                             <constraint firstItem="cQq-0l-IA1" firstAttribute="top" secondItem="AB1-Ip-vMS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="3Fe-c5-NpV"/>
-                            <constraint firstItem="5yc-FD-yBc" firstAttribute="top" secondItem="pAO-tn-2j0" secondAttribute="top" constant="65" id="4fI-it-ktV"/>
                             <constraint firstItem="xuI-EY-DxW" firstAttribute="leading" secondItem="odB-E3-u01" secondAttribute="leading" type="default" id="4yn-f6-Tdl"/>
                             <constraint firstAttribute="bottom" secondItem="xuI-EY-DxW" secondAttribute="bottom" constant="230" id="6O8-4k-fWU"/>
+                            <constraint firstAttribute="trailing" secondItem="5yc-FD-yBc" secondAttribute="trailing" type="default" id="90K-Bq-nMT"/>
                             <constraint firstItem="V7R-ck-i6U" firstAttribute="leading" secondItem="Nhh-Oj-UM9" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="9KU-sB-tip"/>
                             <constraint firstAttribute="bottom" secondItem="Nhh-Oj-UM9" secondAttribute="bottom" constant="108" id="Be2-TU-bfh"/>
                             <constraint firstItem="xuI-EY-DxW" firstAttribute="trailing" secondItem="odB-E3-u01" secondAttribute="trailing" type="default" id="Cp2-qg-Rtu"/>
@@ -185,7 +194,9 @@
                             <constraint firstItem="Nhh-Oj-UM9" firstAttribute="leading" secondItem="pAO-tn-2j0" secondAttribute="leading" constant="352" id="ODv-w7-W9f"/>
                             <constraint firstItem="cQq-0l-IA1" firstAttribute="leading" secondItem="AB1-Ip-vMS" secondAttribute="leading" type="default" id="Xe6-XM-4vT"/>
                             <constraint firstItem="xuI-EY-DxW" firstAttribute="trailing" secondItem="AB1-Ip-vMS" secondAttribute="trailing" type="default" id="a9k-nQ-jxm"/>
-                            <constraint firstItem="5yc-FD-yBc" firstAttribute="leading" secondItem="pAO-tn-2j0" secondAttribute="leading" constant="-29" id="psP-uN-YSQ"/>
+                            <constraint firstItem="hX4-mh-ixr" firstAttribute="leading" secondItem="pAO-tn-2j0" secondAttribute="leading" constant="-11" id="dcu-GD-4Bu"/>
+                            <constraint firstItem="hX4-mh-ixr" firstAttribute="top" secondItem="5yc-FD-yBc" secondAttribute="top" type="default" id="oEt-AR-RtK"/>
+                            <constraint firstItem="hX4-mh-ixr" firstAttribute="top" secondItem="pAO-tn-2j0" secondAttribute="top" constant="65" id="raF-2E-BHz"/>
                             <constraint firstItem="AB1-Ip-vMS" firstAttribute="leading" secondItem="xuI-EY-DxW" secondAttribute="leading" type="default" id="yQS-7P-QkR"/>
                             <constraint firstAttribute="bottom" secondItem="V7R-ck-i6U" secondAttribute="bottom" constant="110" id="zaK-B5-jqx"/>
                         </constraints>
@@ -208,6 +219,7 @@
     </scenes>
     <resources>
         <image name="Default.png" width="320" height="480"/>
+        <image name="logo.png" width="246" height="106"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
