@@ -15,7 +15,7 @@
 #import "MBProgressHUD.h"
 #import "HUD.h"
 
-static NSString *const BaseWebURL = @"http://attendancemasterb768.ninefold-apps.com";
+static NSString *const BaseWebURL = @"http://attendancemasterb768.ninefold-apps.com/";
 
 @interface MasterViewController () {
     AttendanceFeed* _feed;
